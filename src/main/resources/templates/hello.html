@@ -1,10 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Hello</title>
-    <link rel="stylesheet" th:href="@{https://assets.cm.shoito.dev/{tenant}/css/style.css(tenant=${tenant})}" />
-    <script th:src="@{https://assets.cm.shoito.dev/{tenant}/js/tenant.js(tenant=${tenant})}"></script>
+<head th:replace="fragment/head::common_head(~{::title},~{::link},~{::meta})">
+    <title>Hello page</title>
 </head>
 <body>
 
@@ -13,5 +10,8 @@
 <p>共通部分</p>
 <p th:text="${tenant}"></p>
 <footer id="tenant-footer"><!-- テナント毎フッター --></footer>
+
+
+<th:block th:include="fragment/script::common_script"/>
 </body>
 </html>
