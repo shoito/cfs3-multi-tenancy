@@ -12,6 +12,9 @@ public class HelloController {
         final String host =
                 ServletUriComponentsBuilder.fromCurrentContextPath().build().getHost().split("\\.")[0];
         System.out.println(host);
+        // テナント毎に異なるデザイン - データストアから参照する
+        // String tenantCssBlock = "<link rel=\"stylesheet\" href=\"https://assets.cm.shoito.dev/tenant-a/css/style.css\" />";
+        // model.addAttribute("tenantCssBlock", tenantCssBlock);
         model.addAttribute("tenant", host);
         model.addAttribute("message", "Hello");
         return "hello";
