@@ -1,0 +1,16 @@
+<head th:fragment="common_head(title,links,metas)">
+    <meta charset="utf-8">
+    <title th:replace="${title}">Multi tenancy example</title>
+    <meta name="description" content="Multi tenancy example">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <th:block th:replace="${metas} ?: ~{}" />
+    <!-- テナント毎に異なるfavicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{https://assets.cm.shoito.dev/{tenant}/img/favicon.ico(tenant=${tenant})}" />
+    <!-- テナント共通のCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <!-- テナント毎に異なるデザイン -->
+    <link rel="stylesheet" th:href="@{https://assets.cm.shoito.dev/{tenant}/css/style.css(tenant=${tenant})}" />
+    <th:block th:replace="${links} ?: ~{}" />
+</head>
