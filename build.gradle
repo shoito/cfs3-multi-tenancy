@@ -27,3 +27,7 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+bootRun {
+	sourceResources sourceSets.main
+}
